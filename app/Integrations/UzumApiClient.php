@@ -3,7 +3,6 @@
 namespace App\Integrations;
 
 use Illuminate\Http\Client\PendingRequest;
-use Illuminate\Http\Client\RequestException;
 use Illuminate\Support\Facades\Http;
 
 class UzumApiClient
@@ -25,6 +24,11 @@ class UzumApiClient
             ->acceptJson()
             ->throw()
             ->retry(self::RETRY, self::SLEEP);
+    }
+
+    public function getCity(): array
+    {
+        return $this->request->get('main/city')->json('payload');
     }
 
     public function getCities(): array
