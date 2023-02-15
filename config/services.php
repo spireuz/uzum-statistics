@@ -31,4 +31,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'uzum' => [
+        'base_url' => 'https://api.umarket.uz/api',
+        'auth_type' => 'Basic',
+        'auth_token' => env('UZUM_AUTH_TOKEN', ''),
+        'x-iid' => env('UZUM_X_IID', '')
+    ]
 ];
