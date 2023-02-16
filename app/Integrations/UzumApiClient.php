@@ -35,4 +35,11 @@ class UzumApiClient
     {
         return $this->request->get('main/cities')->json('payload');
     }
+
+    public function getDeliveryPrice(int $cityId): array
+    {
+        return $this->request->get('v2/delivery/min-free-price', [
+            'cityId' => $cityId
+        ])->json('payload');
+    }
 }
