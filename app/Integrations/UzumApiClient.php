@@ -7,23 +7,23 @@ use Illuminate\Support\Facades\Http;
 
 class UzumApiClient
 {
-    const RETRY = 2;
-    const SLEEP = 1000;
-
     public function __construct(private PendingRequest $request)
     {
-        $this->request = Http::baseUrl(config('services.uzum.base_url'))
+        $this->request = Http::baseUrl(config('uzum.base_url'))
             ->withHeaders([
-                'authorization' => sprintf(
+                'Accept-Language' => config('uzum.lang.current'),
+                'Authorization' => sprintf(
                     '%s %s',
-                    config('services.uzum.auth_type'),
-                    config('services.uzum.auth_token')
-                ),
-                'Accept-Language' => 'uz-UZ'
+                    config('uzum.auth_type'),
+                    config('uzum.auth_token')
+                )
             ])
             ->acceptJson()
             ->throw()
-            ->retry(self::RETRY, self::SLEEP);
+            ->retry(
+                config('uzum.max-retry'),
+                config('uzum.sleep')
+            );
     }
 
     public function getCity(): array
