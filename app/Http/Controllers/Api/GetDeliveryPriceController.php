@@ -17,6 +17,6 @@ class GetDeliveryPriceController extends BaseApiController
         $cityId = $request->input('cityId');
         $deliveryPrice = $this->apiClient->getDeliveryPrice($cityId);
 
-        return $this->responseWithData($deliveryPrice);
+        return $this->respondWithData($deliveryPrice);
     }
 }

@@ -15,6 +15,6 @@ class GetCitiesController extends BaseApiController
     {
         $cities = $this->apiClient->getCities();
 
-        return $this->responseWithData($cities);
+        return $this->respondWithData($cities);
     }
 }
