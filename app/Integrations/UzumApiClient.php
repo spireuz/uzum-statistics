@@ -47,4 +47,9 @@ class UzumApiClient
     {
         return $this->request->get('main/delivery', $params)->json('payload');
     }
+
+    public function getCategories(): array
+    {
+        return $this->request->get('main/root-categories')->json('payload');
+    }
 }

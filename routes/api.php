@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\GetCategoriesController;
 use App\Http\Controllers\Api\GetCitiesController;
 use App\Http\Controllers\Api\GetCityController;
 use App\Http\Controllers\Api\GetDeliveryPriceController;
@@ -25,6 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('uzum')->group(function () {
     Route::get('city', GetCityController::class);
     Route::get('cities', GetCitiesController::class);
+    Route::get('categories', GetCategoriesController::class);
     Route::get('delivery-price', GetDeliveryPriceController::class);
     Route::get('delivery-time', GetDeliveryTimeController::class);
 });
