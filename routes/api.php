@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\GetCitiesController;
 use App\Http\Controllers\Api\GetCityController;
 use App\Http\Controllers\Api\GetDeliveryPriceController;
+use App\Http\Controllers\Api\GetDeliveryTimeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +26,5 @@ Route::prefix('uzum')->group(function () {
     Route::get('city', GetCityController::class);
     Route::get('cities', GetCitiesController::class);
     Route::get('delivery-price', GetDeliveryPriceController::class);
+    Route::get('delivery-time', GetDeliveryTimeController::class);
 });

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Api;
 
-
 use App\Integrations\UzumApiClient;
 use Illuminate\Http\JsonResponse;
 

@@ -42,4 +42,9 @@ class UzumApiClient
             'cityId' => $cityId
         ])->json('payload');
     }
+
+    public function getDeliveryTime(array $params): array
+    {
+        return $this->request->get('main/delivery', $params)->json('payload');
+    }
 }
