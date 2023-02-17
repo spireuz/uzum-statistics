@@ -52,4 +52,9 @@ class UzumApiClient
     {
         return $this->request->get('main/root-categories')->json('payload');
     }
+
+    public function getShopInfo(string $shopName): array
+    {
+        return $this->request->get("shop/$shopName")->json('payload');
+    }
 }
