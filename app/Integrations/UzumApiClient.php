@@ -57,4 +57,9 @@ class UzumApiClient
     {
         return $this->request->get("shop/$shopName")->json('payload');
     }
+
+    public function getProduct(int $productId): array
+    {
+        return $this->request->get("v2/product/$productId")->json('payload.data');
+    }
 }
