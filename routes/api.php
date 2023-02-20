@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\GetCitiesController;
 use App\Http\Controllers\Api\GetCityController;
 use App\Http\Controllers\Api\GetDeliveryPriceController;
 use App\Http\Controllers\Api\GetDeliveryTimeController;
+use App\Http\Controllers\Api\GetProductActionBannerController;
 use App\Http\Controllers\Api\GetProductController;
 use App\Http\Controllers\Api\GetShopInfoController;
 use Illuminate\Http\Request;
@@ -33,4 +34,5 @@ Route::prefix('uzum')->group(function () {
     Route::get('delivery-time', GetDeliveryTimeController::class);
     Route::get('shop/{shopName}', GetShopInfoController::class);
     Route::get('products/{productId}', GetProductController::class)->whereNumber('productId');
+    Route::get('products/action/{productId}', GetProductActionBannerController::class)->whereNumber('productId');
 });

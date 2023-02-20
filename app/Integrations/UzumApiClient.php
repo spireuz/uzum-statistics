@@ -62,4 +62,9 @@ class UzumApiClient
     {
         return $this->request->get("v2/product/$productId")->json('payload.data');
     }
+
+    public function getProductActionBanner(int $productId): array
+    {
+        return $this->request->get("product/actions/$productId")->json('0');
+    }
 }
