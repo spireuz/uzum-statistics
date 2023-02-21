@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Products;
 
-use App\Http\Requests\Api\GetProductReviewsRequest;
+use App\Http\Controllers\Api\BaseApiController;
+use App\Http\Requests\Api\Products\GetProductReviewsRequest;
 use App\Integrations\UzumApiClient;
 use Illuminate\Http\JsonResponse;
 

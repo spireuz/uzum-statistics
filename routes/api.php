@@ -1,14 +1,14 @@
 <?php
 
-use App\Http\Controllers\Api\GetCategoriesController;
-use App\Http\Controllers\Api\GetCitiesController;
-use App\Http\Controllers\Api\GetCityController;
-use App\Http\Controllers\Api\GetDeliveryPriceController;
-use App\Http\Controllers\Api\GetDeliveryTimeController;
-use App\Http\Controllers\Api\GetProductActionBannerController;
-use App\Http\Controllers\Api\GetProductController;
-use App\Http\Controllers\Api\GetProductReviewsController;
-use App\Http\Controllers\Api\GetShopInfoController;
+use App\Http\Controllers\Api\Categories\GetCategoriesController;
+use App\Http\Controllers\Api\Cities\GetCitiesController;
+use App\Http\Controllers\Api\Cities\GetCityController;
+use App\Http\Controllers\Api\Delivery\GetDeliveryPriceController;
+use App\Http\Controllers\Api\Delivery\GetDeliveryTimeController;
+use App\Http\Controllers\Api\Products\GetProductActionBannerController;
+use App\Http\Controllers\Api\Products\GetProductController;
+use App\Http\Controllers\Api\Products\GetProductReviewsController;
+use App\Http\Controllers\Api\Shops\GetShopInfoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,18 +23,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware('auth:sanctum')
+    ->get('user', fn (Request $request) => $request->user());
 
 Route::prefix('uzum')->group(function () {
     Route::get('city', GetCityController::class);
     Route::get('cities', GetCitiesController::class);
     Route::get('categories', GetCategoriesController::class);
-    Route::get('delivery-price', GetDeliveryPriceController::class);
-    Route::get('delivery-time', GetDeliveryTimeController::class);
+
+    Route::prefix('delivery')->group(function () {
+        Route::get('price', GetDeliveryPriceController::class);
+        Route::get('time', GetDeliveryTimeController::class);
+    });
+
     Route::get('shop/{shopName}', GetShopInfoController::class);
-    Route::get('products/{productId}', GetProductController::class)->whereNumber('productId');
-    Route::get('products/action/{productId}', GetProductActionBannerController::class)->whereNumber('productId');
-    Route::get('products/{productId}/reviews', GetProductReviewsController::class)->whereNumber('productId');
+
+    Route::prefix('products')->group(function () {
+        Route::get('/{productId}', GetProductController::class)
+            ->whereNumber('productId');
+
+        Route::get('/{productId}/action', GetProductActionBannerController::class)
+            ->whereNumber('productId');
+
+        Route::get('/{productId}/reviews', GetProductReviewsController::class)
+            ->whereNumber('productId');
+    });
 });

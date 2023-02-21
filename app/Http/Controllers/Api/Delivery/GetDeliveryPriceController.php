@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Delivery;
 
-use App\Http\Requests\Api\GetDeliveryPriceRequest;
+use App\Http\Controllers\Api\BaseApiController;
+use App\Http\Requests\Api\Delivery\GetDeliveryPriceRequest;
 use App\Integrations\UzumApiClient;
 use Illuminate\Http\JsonResponse;
 

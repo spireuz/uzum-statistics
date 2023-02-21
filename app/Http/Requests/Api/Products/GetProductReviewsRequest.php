@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Api;
+namespace App\Http\Requests\Api\Products;
 
 use App\Http\Requests\Transferable;
 use Illuminate\Foundation\Http\FormRequest;
