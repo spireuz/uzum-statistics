@@ -67,4 +67,11 @@ class UzumApiClient
     {
         return $this->request->get("product/actions/$productId")->json('0');
     }
+
+    public function getProductReviews(int $productId, array $params): array
+    {
+        return $this->request
+            ->get("product/$productId/reviews", $params)
+            ->json('payload');
+    }
 }
