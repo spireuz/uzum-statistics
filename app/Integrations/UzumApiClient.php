@@ -74,4 +74,11 @@ class UzumApiClient
             ->get("product/$productId/reviews", $params)
             ->json('payload');
     }
+
+    public function getSimilarProducts(int $productId, array $params): array
+    {
+        return $this->request
+            ->get("v2/product/$productId/similar", $params)
+            ->json();
+    }
 }
