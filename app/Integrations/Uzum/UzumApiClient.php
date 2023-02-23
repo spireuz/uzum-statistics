@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Integrations;
+namespace App\Integrations\Uzum;
 
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Http;

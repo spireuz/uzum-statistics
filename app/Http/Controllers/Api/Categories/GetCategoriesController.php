@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api\Categories;
 
 use App\Http\Controllers\Api\BaseApiController;
-use App\Integrations\UzumApiClient;
+use App\Integrations\Uzum\UzumApiClient;
 use Illuminate\Http\JsonResponse;
 
 class GetCategoriesController extends BaseApiController

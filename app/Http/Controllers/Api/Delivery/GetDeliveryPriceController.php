@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api\Delivery;
 
 use App\Http\Controllers\Api\BaseApiController;
 use App\Http\Requests\Api\Delivery\GetDeliveryPriceRequest;
-use App\Integrations\UzumApiClient;
+use App\Integrations\Uzum\UzumApiClient;
 use Illuminate\Http\JsonResponse;
 
 class GetDeliveryPriceController extends BaseApiController
