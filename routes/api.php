@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\Products\GetProductActionBannerController;
 use App\Http\Controllers\Api\Products\GetProductController;
 use App\Http\Controllers\Api\Products\GetProductReviewsController;
 use App\Http\Controllers\Api\Products\GetSimilarProductsController;
+use App\Http\Controllers\Api\SearchController;
 use App\Http\Controllers\Api\Shops\GetShopInfoController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -52,4 +53,6 @@ Route::prefix('uzum')->group(function () {
         Route::get('/{productId}/similar', GetSimilarProductsController::class)
             ->whereNumber('productId');
     });
+
+    Route::get('search', SearchController::class);
 });

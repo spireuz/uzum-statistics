@@ -2,6 +2,7 @@
 
 return [
     'base_url' => 'https://api.umarket.uz/api',
+    'graphql_server' => 'https://graphql.umarket.uz',
     'auth_type' => 'Basic',
     'auth_token' => env('UZUM_AUTH_TOKEN', ''),
     'x-iid' => env('UZUM_X_IID', ''),
