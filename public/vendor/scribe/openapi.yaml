@@ -44838,7 +44838,7 @@ paths:
                       class: Illuminate\Http\Client\PendingRequest
                       type: '->'
                     -
-                      file: /Users/devk/webly/uzum-stats/app/Integrations/UzumApiClient.php
+                      file: /Users/devk/webly/uzum-stats/app/Integrations/ApiClient.php
                       line: 58
                       function: get
                       class: Illuminate\Http\Client\PendingRequest
@@ -45276,7 +45276,7 @@ paths:
                         class: Illuminate\Http\Client\PendingRequest
                         type: '->'
                       -
-                        file: /Users/devk/webly/uzum-stats/app/Integrations/UzumApiClient.php
+                        file: /Users/devk/webly/uzum-stats/app/Integrations/ApiClient.php
                         line: 58
                         function: get
                         class: Illuminate\Http\Client\PendingRequest
@@ -45719,7 +45719,7 @@ paths:
                 example:
                   message: 'App\Integrations\UzumApiClient::getProduct(): Return value must be of type array, null returned'
                   exception: TypeError
-                  file: /Users/devk/webly/uzum-stats/app/Integrations/UzumApiClient.php
+                  file: /Users/devk/webly/uzum-stats/app/Integrations/ApiClient.php
                   line: 63
                   trace:
                     -
@@ -46109,7 +46109,7 @@ paths:
                     example: TypeError
                   file:
                     type: string
-                    example: /Users/devk/webly/uzum-stats/app/Integrations/UzumApiClient.php
+                    example: /Users/devk/webly/uzum-stats/app/Integrations/ApiClient.php
                   line:
                     type: integer
                     example: 63

@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\Api\Products;
 
 use App\Http\Controllers\Api\BaseApiController;
-use App\Integrations\Uzum\UzumApiClient;
+use App\Integrations\ApiClient;
 use Illuminate\Http\JsonResponse;
 
 class GetProductController extends BaseApiController
 {
-    public function __construct(private readonly UzumApiClient $apiClient)
+    public function __construct(private readonly ApiClient $apiClient)
     {
     }
 

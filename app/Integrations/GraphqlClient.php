@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Integrations\Uzum;
+namespace App\Integrations;
 
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Http;
 
-class UzumGraphqlClient
+class GraphqlClient
 {
     public function __construct(private PendingRequest $request)
     {

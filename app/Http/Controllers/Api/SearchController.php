@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Integrations\Uzum\UzumGraphqlClient;
+use App\Integrations\GraphqlClient;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class SearchController extends BaseApiController
 {
-    public function __construct(private readonly UzumGraphqlClient $graphqlClient)
+    public function __construct(private readonly GraphqlClient $graphqlClient)
     {
     }
 
