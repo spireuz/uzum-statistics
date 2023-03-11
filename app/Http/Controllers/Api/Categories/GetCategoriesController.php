@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers\Api\Categories;
 
+use App\Actions\Categories\GetCategories;
 use App\Http\Controllers\Api\BaseApiController;
-use App\Integrations\ApiClient;
 use Illuminate\Http\JsonResponse;
 
 class GetCategoriesController extends BaseApiController
 {
-    public function __construct(private readonly ApiClient $apiClient)
+    public function __invoke(GetCategories $getCategories): JsonResponse
     {
-    }
-
-    public function __invoke(): JsonResponse
-    {
-        $categories = $this->apiClient->getCategories();
+        $categories = $getCategories->handle();
 
         return $this->respondWithData($categories);
     }

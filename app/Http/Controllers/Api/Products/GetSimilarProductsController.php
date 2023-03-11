@@ -2,24 +2,19 @@
 
 namespace App\Http\Controllers\Api\Products;
 
+use App\Actions\Products\GetSimilarProducts;
 use App\Http\Controllers\Api\BaseApiController;
 use App\Http\Requests\Api\Products\GetSimilarProductsRequest;
-use App\Integrations\ApiClient;
 use Illuminate\Http\JsonResponse;
 
 class GetSimilarProductsController extends BaseApiController
 {
-    public function __construct(
-        private readonly ApiClient $apiClient
-    ) {
-    }
-
     public function __invoke(
         GetSimilarProductsRequest $request,
-        int $productID
+        int $productId,
+        GetSimilarProducts $getSimilarProducts
     ): JsonResponse {
-        $params = $request->toDTO();
-        $similarProducts = $this->apiClient->getSimilarProducts($productID, $params);
+        $similarProducts = $getSimilarProducts->handle($productId, $request->toDTO());
 
         return $this->respondWithData($similarProducts);
     }

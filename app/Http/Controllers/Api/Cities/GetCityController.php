@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers\Api\Cities;
 
+use App\Actions\Cities\GetCity;
 use App\Http\Controllers\Api\BaseApiController;
-use App\Integrations\ApiClient;
 use Illuminate\Http\JsonResponse;
 
 class GetCityController extends BaseApiController
 {
-    public function __construct(private readonly ApiClient $apiClient)
+    public function __invoke(GetCity $getCity): JsonResponse
     {
-    }
-
-    public function __invoke(): JsonResponse
-    {
-        $city = $this->apiClient->getCity();
+        $city = $getCity->handle();
 
         return $this->respondWithData($city);
     }
