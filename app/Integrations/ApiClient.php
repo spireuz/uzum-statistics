@@ -12,18 +12,11 @@ class ApiClient
         $this->request = Http::baseUrl(config('uzum.base_url'))
             ->withHeaders([
                 'Accept-Language' => config('uzum.lang.current'),
-                'Authorization' => sprintf(
-                    '%s %s',
-                    config('uzum.auth_type'),
-                    config('uzum.auth_token')
-                )
+                'Authorization' => config('uzum.auth_type') . ' ' . config('uzum.auth_token')
             ])
             ->acceptJson()
             ->throw()
-            ->retry(
-                config('uzum.max-retry'),
-                config('uzum.sleep')
-            );
+            ->retry(config('uzum.max-retry'), config('uzum.sleep'));
     }
 
     public function getCity(): array
@@ -38,9 +31,9 @@ class ApiClient
 
     public function getDeliveryPrice(int $cityId): array
     {
-        return $this->request->get('v2/delivery/min-free-price', [
-            'cityId' => $cityId
-        ])->json('payload');
+        return $this->request
+            ->get('v2/delivery/min-free-price', ['cityId' => $cityId])
+            ->json('payload');
     }
 
     public function getDeliveryTime(array $params): array

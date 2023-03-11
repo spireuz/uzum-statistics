@@ -12,19 +12,12 @@ class GraphqlClient
         $this->request = Http::baseUrl(config('uzum.graphql_server'))
             ->withHeaders([
                 'Accept-Language' => config('uzum.lang.current'),
-                'Authorization' => sprintf(
-                    '%s %s',
-                    config('uzum.auth_type'),
-                    config('uzum.auth_token')
-                ),
+                'Authorization' => config('uzum.auth_type') . ' '. config('uzum.auth_token'),
                 'x-iid' => config('uzum.x-iid')
             ])
             ->acceptJson()
             ->throw()
-            ->retry(
-                config('uzum.max-retry'),
-                config('uzum.sleep')
-            );
+            ->retry(config('uzum.max-retry'), config('uzum.sleep'));
     }
 
     private function buildQuery(array $variables): array
