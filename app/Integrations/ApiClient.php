@@ -9,14 +9,7 @@ class ApiClient
 {
     public function __construct(private PendingRequest $request)
     {
-        $this->request = Http::baseUrl(config('uzum.base_url'))
-            ->withHeaders([
-                'Accept-Language' => config('uzum.lang.current'),
-                'Authorization' => config('uzum.auth_type') . ' ' . config('uzum.auth_token')
-            ])
-            ->acceptJson()
-            ->throw()
-            ->retry(config('uzum.max-retry'), config('uzum.sleep'));
+        $this->request = Http::uzumRest();
     }
 
     public function getCity(): array
